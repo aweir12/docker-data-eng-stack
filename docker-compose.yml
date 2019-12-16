@@ -1,0 +1,37 @@
+
+version: "3.7"
+
+services:
+
+  mysql-db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - type: bind
+        source: ./conf/mysql-db/entrypoint
+        target: /docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-password123}
+      MYSQL_USER: ${MYSQL_USER:-data_eng}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-password123}
+      MYSQL_DATABASE: ${MYSQL_DB:-data_eng}
+  
+  mysqld-exporter:
+    image: prom/mysqld-exporter:latest
+    ports:
+      - "9104:9104"
+    environment:
+      DATA_SOURCE_NAME: "exporter:password123@tcp(mysql-db:3306)/data_eng"
+  
+  jupyter:
+    image: jupyter/base-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - type: bind
+        source: ./conf/jupyter
+        target: /usr/local/bin/before-notebook.d
+    environment:
+      JUPYTER_PW: ${JUPYTER_PW:-password123}
+
