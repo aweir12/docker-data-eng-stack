@@ -4,7 +4,7 @@ version: "3.7"
 services:
 
   mysql-db:
-    image: mysql:latest
+    image: mysql:8
     ports:
       - "3306:3306"
     volumes:
@@ -32,5 +32,8 @@ services:
       - type: bind
         source: ./conf/jupyter
         target: /usr/local/bin/before-notebook.d
+      - type: bind
+        source: ./data/jupyter
+        target: /home/jovyan/work
     environment:
       JUPYTER_PW: ${JUPYTER_PW:-password123}

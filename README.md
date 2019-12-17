@@ -2,6 +2,6 @@
 Docker data engineering stack
 
 ## What is included in this stack
-* MySQL
-* mysqld_exporter
-* Jupyter Notebook
+* mysql (https://hub.docker.com/_/mysql)
+* prom/mysqld_exporter (https://hub.docker.com/r/prom/mysqld-exporter/)
+* jupyter/base-notebook (https://hub.docker.com/r/jupyter/base-notebook/)
