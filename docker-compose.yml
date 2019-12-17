@@ -34,4 +34,3 @@ services:
         target: /usr/local/bin/before-notebook.d
     environment:
       JUPYTER_PW: ${JUPYTER_PW:-password123}
-
