@@ -1,1 +1,3 @@
 .vscode/settings.json
+notebooks/*checkpoint.ipynb
+notebooks/.ipynb_checkpoints

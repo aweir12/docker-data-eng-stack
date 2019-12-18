@@ -33,7 +33,7 @@ services:
         source: ./conf/jupyter
         target: /usr/local/bin/before-notebook.d
       - type: bind
-        source: ./data/jupyter
+        source: ./notebooks
         target: /home/jovyan/work
     environment:
       JUPYTER_PW: ${JUPYTER_PW:-password123}
