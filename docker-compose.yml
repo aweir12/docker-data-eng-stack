@@ -16,6 +16,9 @@ services:
       MYSQL_USER: ${MYSQL_USER:-data_eng}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-password123}
       MYSQL_DATABASE: ${MYSQL_DB:-data_eng}
+      PR_ENROLL: ${ENROLL-true}
+      PR_LOC: ${HOSTNAME-127.0.0.1}
+      PR_ALIAS: ${PROM_ALIAS-mysql}
   
   mysqld-exporter:
     image: prom/mysqld-exporter:latest
