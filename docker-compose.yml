@@ -44,3 +44,5 @@ services:
         target: /home/jovyan/work
     environment:
       JUPYTER_PW: ${JUPYTER_PW:-password123}
+      GRANT_SUDO: ${JUPYTER_SUDO:-yes}
+    user: root

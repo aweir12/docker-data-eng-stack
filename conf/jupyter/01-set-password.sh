@@ -9,3 +9,7 @@ while read p; do
   echo "Installing $p"
   pip install "$p"
 done < /usr/local/bin/before-notebook.d/packages.txt
+
+apt-get update
+apt-get install -y cron
+apt-get install -y vim
