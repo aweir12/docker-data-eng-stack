@@ -13,3 +13,4 @@ done < /usr/local/bin/before-notebook.d/packages.txt
 apt-get update
 apt-get install -y cron
 apt-get install -y vim
+service cron start
